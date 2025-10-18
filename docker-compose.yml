@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    environment:
+      - POSTGRES_DB=commentsdb
+      - POSTGRES_USER=commentsuser
+      - POSTGRES_PASSWORD=changeme
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: commentsdb
+      POSTGRES_USER: commentsuser
+      POSTGRES_PASSWORD: changeme
+    ports:
+      - "5432:5432"

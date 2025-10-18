@@ -1,0 +1,9 @@
+Django>=5.0
+djangorestframework
+psycopg2-binary
+channels
+channels-redis
+celery
+redis
+Pillow
+bleach
