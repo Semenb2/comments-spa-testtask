@@ -53,11 +53,11 @@ ASGI_APPLICATION = "project.asgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("POSTGRES_DB", "commentsdb"),
-        "USER": os.getenv("POSTGRES_USER", "commentsuser"),
-        "PASSWORD": os.getenv("POSTGRES_PASSWORD", "changeme"),
-        "HOST": os.getenv("POSTGRES_HOST", "localhost"),
-        "PORT": os.getenv("POSTGRES_PORT", "5432"),
+        "NAME": "commentsdb",
+        "USER": "commentsuser",
+        "PASSWORD": "changeme",
+        "HOST": "db",
+        "PORT": "5432",
     }
 }
 

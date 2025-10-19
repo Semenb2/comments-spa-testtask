@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Комментарии</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Комментарии</h1>
+
+        <div id="comment-form">
+            <input type="text" id="username" placeholder="Ваше имя (латиница и цифры)">
+            <input type="email" id="email" placeholder="Ваш email">
+            <textarea id="text" placeholder="Ваш комментарий"></textarea>
+
+            <div class="toolbar">
+                <button type="button" onclick="wrapTag('i')">[i]</button>
+                <button type="button" onclick="wrapTag('strong')">[strong]</button>
+                <button type="button" onclick="wrapTag('code')">[code]</button>
+                <button type="button" onclick="insertLink()">[a]</button>
+                <button type="button" onclick="preview()">Предпросмотр</button>
+            </div>
+
+            <div id="preview" class="preview-box"></div>
+
+            <div class="captcha-box">
+                <input type="text" id="captcha" placeholder="Введите CAPTCHA">
+                <img id="captcha-img" src="/api/captcha/" alt="captcha" onclick="refreshCaptcha()">
+            </div>
+
+            <input type="file" id="file" accept=".jpg,.jpeg,.png,.gif,.txt">
+
+            <button onclick="sendComment()">Отправить</button>
+        </div>
+
+        <h2>Список комментариев</h2>
+        <div id="comments"></div>
+        <div id="pagination"></div>
+    </div>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
